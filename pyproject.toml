@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hexlet-code"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = ["akasmall <aka_sm@ro.ru>"]
 readme = "README.md"
@@ -13,6 +13,9 @@ python = "^3.10"
 prompt = "^0.4.1"
 
 [tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^6.1.0"
 
 [build-system]
 requires = ["poetry-core"]

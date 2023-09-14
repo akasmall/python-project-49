@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-
 # file <brain_games.py>
-from brain_games.cli import *
+
+from brain_games.cli import welcome_user
+
 
 def main():
     print('Welcome to the Brain Games!')
