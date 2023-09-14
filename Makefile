@@ -1,6 +1,7 @@
 brain-games:
 	poetry run brain-games
 build:
+	rm dist/*
 	poetry build
 publish:
 	poetry publish --dry-run
