@@ -1,5 +1,5 @@
 *.egg-info
-__pycache__
+__pycache__/
 dist/*.whl
 dist/*.gz
 *.pyc
@@ -7,3 +7,4 @@ dist/*.gz
 .coverage
 coverage.xml
 .pytest_cache/
+.idea/
