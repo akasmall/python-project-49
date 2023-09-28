@@ -84,12 +84,16 @@ def calculation_result_prime(lower_number, upper_number, number_sequence_prime):
     return 'yes' if number_sequence_prime in sequence_prime_numbers else 'no'
 
 
-def answer_user_str():
+def answer_user():
     return prompt.string('Your answer: ')
 
 
-def answer_user_int():
-    return prompt.integer('Your answer: ')
+# def answer_user_str():
+#     return prompt.string('Your answer: ')
+
+
+# def answer_user_int():
+#     return prompt.integer('Your answer: ')
 
 
 def checking_answer(calculation_value, answer_user_value):

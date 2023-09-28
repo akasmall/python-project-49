@@ -25,7 +25,8 @@ def brain_gcd_game():
         # задаем задачу юзеру вычислить
         gl.question(random_number_1, random_number_2)
         # получаем ответ от юзера вводом ЧИСЛА
-        answer_user_value = gl.answer_user_int()
+        # answer_user_value = gl.answer_user_int()
+        answer_user_value = gl.answer_user()
         # print(f'Ответ юзера: {answer_user_value}')
         # проверяем ответ от юзер
         result_task = gl.checking_answer(

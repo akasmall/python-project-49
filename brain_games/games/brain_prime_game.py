@@ -17,7 +17,8 @@ def brain_prime_game():
         # задаем задачу юзеру
         gl.question(number_sequence_prime)
         # получаем ответ от юзер
-        answer_user_value = gl.answer_user_str()
+        # answer_user_value = gl.answer_user_str()
+        answer_user_value = gl.answer_user()
         # вычисляем число введенное юзером - простое?
         calculation_result = gl.calculation_result_prime(
             2,

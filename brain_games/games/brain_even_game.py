@@ -20,7 +20,8 @@ def brain_even_game():
         # задаем вопрос юзеру
         gl.question(random_number)
         # получаем ответ от юзера тип ЧИСЛО
-        answer_user_value = gl.answer_user_str()
+        # answer_user_value = gl.answer_user_str()
+        answer_user_value = gl.answer_user()
         # проверяем ответ от юзер
         result_task = gl.checking_answer(
             calculation_result,
