@@ -1,4 +1,4 @@
-# file <brain_calc.py>
+# file <brain_calc_game.py>
 
 from brain_games import game_logic as gl
 
@@ -25,19 +25,19 @@ def brain_calc_game():
                                                        )
         # задаем задачу юзеру вычислить
         gl.question(random_number_1, random_number_2, random_sign)
-        # получаем ответ и проверяем
-        result_user = gl.answer_user('calc', calculation_result)
+        # получаем ответ юзера
+        answer_user_value = gl.answer_user()
+        # проверяем ответ от юзер
+        result_task = gl.checking_answer(
+            calculation_result,
+            answer_user_value
+            )
         # выводим результат игры
         gl.display_game_result(
-            str(name_user),
+            name_user,
             calculation_result,
-            bool(result_user)
+            answer_user_value,
+            result_task
             )
     # поздравляем юзера
     print(f"Congratulations, {name_user}!")
-
-
-"""
-if __name__ == '__main__':
-    main()
-"""

@@ -3,17 +3,20 @@ import random
 import math
 
 
-def greeting_user():                            # приветствуем юзера
+# приветствуем юзера
+def greeting_user():
     print('Welcome to the Brain Games!')
 
 
-def give_name():                                # узнаем имя
+# узнаем имя
+def give_name():
     name = prompt.string('May I have your name? ')
     print(f'Hello, {name}!')
     return name
 
 
-def task_to_the_user(name_game):                # объясняем задание юзеру
+# объясняем задание юзеру
+def task_to_the_user(name_game):
     if name_game == 'even':
         print('Answer "yes" if the number is even, otherwise answer "no".')
     elif name_game == 'calc':
@@ -22,19 +25,25 @@ def task_to_the_user(name_game):                # объясняем задан�
         print('Find the greatest common divisor of given numbers.')
     elif name_game == 'progression':
         print('What number is missing in the progression?')
+    elif name_game == 'prime':
+        print('Answer "yes" if given number is prime. Otherwise answer "no".')
     else:
         print('Something went wrong. Unknown game!')
 
 
-def random_sign(sign):                  # получаем случайный знак из списка
+# получаем случайный знак из списка
+# а также получаем случайное число для prime
+def random_sign(sign):
     random.shuffle(sign)
     return random.choice(sign)
 
 
-def random_number(number_1, number_2):          # получаем случайное число
+# получаем случайное число
+def random_number(number_1, number_2):
     return random.randint(number_1, number_2)
 
 
+# получаем случайную прогрессию со случайным шагом
 def random_progression(number_start, number_finish, step):
     # получаем ссылку на генератор от до и шагом
     progression = range(number_start, number_finish, step)
@@ -49,8 +58,7 @@ def question(random_number_1, random_number_2='', random_sign=''):
     print(f'Question: {result}')
 
 
-# проверяем ответ для игры brain_even
-# def checking_answer_even(value_task, answer_user):
+# вычисляем результат для игры brain_even
 def calculation_result_even(value_task):
     if value_task % 2 == 0:
         return 'yes'
@@ -58,29 +66,27 @@ def calculation_result_even(value_task):
         return 'no'
 
 
-# проверяем ответ для игры brain_calc и brain_gcd
-def checking_answer(value_task, answer_user):
-    if value_task == answer_user:
-        return True
-    else:
-        return False
+# получаем послед-ность простых чисел для brain_prime и проверяем ответ юзера
+def calculation_result_prime(lower_number, upper_number, number_sequence_prime):
+    sequence_prime_numbers = []
+    # получили последовательность простых чисел от lower_number до upper_number
+    for number in range(lower_number, upper_number + 1):
+        if number > 1:
+            for i in range(2, number):
+                if (number % i) == 0:
+                    break
+            else:
+                sequence_prime_numbers.append(number)
+    return 'yes' if number_sequence_prime in sequence_prime_numbers else 'no'
 
 
-# получаем ответ на вопрос от юзера
-def answer_user(value_game, value_task):
-    global answer_user_value
-    result = False
-    # получаем ответ юзера
-    answer_user_value = prompt.string('Your answer: ')
-    # проверяем результат в зависимости от игры
-    if value_game == 'even':
-        result = checking_answer(str(calculation_result_even(value_task)),
-                                 str(answer_user_value))
-    elif (value_game == 'calc' or value_game == 'gcd'):
-        result = checking_answer(int(value_task), int(answer_user_value))
-    elif value_game == 'progression':
-        result = checking_answer(str(value_task), str(answer_user_value))
-    return result
+def answer_user():
+    return prompt.string('Your answer: ')
+
+
+def checking_answer(calculation_value, answer_user_value):
+    # проверяем результат even
+    return True if str(calculation_value) == str(answer_user_value) else False
 
 
 # вычисляем результат игры brain_calc
@@ -102,8 +108,8 @@ def calculation_result_progression(string_progression, random_hide_number):
     return result
 
 
-def display_game_result(name_user: str, rigth_value, answer_user: bool):
-    if answer_user is False:
+def display_game_result(name_user, rigth_value, answer_user_value, task_value):
+    if task_value is False:
         # неправильный ответ юзера
         print(f"'{answer_user_value}' is wrong answer ;(. Correct answer was "
               f"'{rigth_value}'.\n"
