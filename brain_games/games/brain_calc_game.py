@@ -26,7 +26,7 @@ def brain_calc_game():
         # задаем задачу юзеру вычислить
         gl.question(random_number_1, random_number_2, random_sign)
         # получаем ответ юзера
-        answer_user_value = gl.answer_user()
+        answer_user_value = gl.answer_user_int()
         # проверяем ответ от юзер
         result_task = gl.checking_answer(
             calculation_result,

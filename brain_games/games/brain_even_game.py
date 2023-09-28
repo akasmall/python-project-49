@@ -19,8 +19,8 @@ def brain_even_game():
         calculation_result = gl.calculation_result_even(random_number)
         # задаем вопрос юзеру
         gl.question(random_number)
-        # получаем ответ от юзер
-        answer_user_value = gl.answer_user()
+        # получаем ответ от юзера тип ЧИСЛО
+        answer_user_value = gl.answer_user_str()
         # проверяем ответ от юзер
         result_task = gl.checking_answer(
             calculation_result,

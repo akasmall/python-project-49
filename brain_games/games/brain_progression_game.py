@@ -35,7 +35,7 @@ def brain_progression_game():
         # задаем задачу юзеру вычислить
         gl.question(calculation_result)
         # получаем ответ от юзер
-        answer_user_value = gl.answer_user()
+        answer_user_value = gl.answer_user_int()
         # проверяем ответ от юзер
         result_task = gl.checking_answer(
             hidden_number,

@@ -54,8 +54,12 @@ def random_progression(number_start, number_finish, step):
 
 # задаем вопрос/задачу юзеру
 def question(random_number_1, random_number_2='', random_sign=''):
-    result = f'{random_number_1} {random_sign} {random_number_2}'
-    print(f'Question: {result}')
+    if random_number_2 == '':
+        print(f'Question: {random_number_1}')
+    elif random_sign == '':
+        print(f'Question: {random_number_1} {random_number_2}')
+    else:
+        print(f'Question: {random_number_1} {random_sign} {random_number_2}')
 
 
 # вычисляем результат для игры brain_even
@@ -80,8 +84,12 @@ def calculation_result_prime(lower_number, upper_number, number_sequence_prime):
     return 'yes' if number_sequence_prime in sequence_prime_numbers else 'no'
 
 
-def answer_user():
+def answer_user_str():
     return prompt.string('Your answer: ')
+
+
+def answer_user_int():
+    return prompt.integer('Your answer: ')
 
 
 def checking_answer(calculation_value, answer_user_value):
@@ -97,8 +105,7 @@ def expression_calculation(random_number_1, random_number_2, random_sign):
 
 # вычисляем результат игры brain_gcd
 def calculation_result_gcd(random_number_1, random_number_2):
-    result = math.gcd(random_number_1, random_number_2)
-    return result
+    return math.gcd(random_number_1, random_number_2)
 
 
 # вычисляем результат игры brain_progression
