@@ -19,8 +19,7 @@ def brain_gcd_game():
         # print(random_number_2)
         # вычисляем выражение игры
         calculation_result = gl.calculation_result_gcd(random_number_1,
-                                                       random_number_2
-                                                       )
+                                                       random_number_2)
         # print(f'Правильный ответ: {calculation_result}')
         # задаем задачу юзеру вычислить
         gl.question(random_number_1, random_number_2)
@@ -29,18 +28,14 @@ def brain_gcd_game():
         answer_user_value = gl.answer_user()
         # print(f'Ответ юзера: {answer_user_value}')
         # проверяем ответ от юзер
-        result_task = gl.checking_answer(
-            calculation_result,
-            answer_user_value
-            )
+        result_task = gl.checking_answer(calculation_result, answer_user_value)
         # print(f'Проверка ответа {result_task}')
         # выводим результат игры
         gl.display_game_result(
             name_user,
             calculation_result,
             answer_user_value,
-            result_task
-            )    # поздравляем юзера
+            result_task)    # поздравляем юзера
     print(f"Congratulations, {name_user}!")
 
 

@@ -20,35 +20,29 @@ def brain_progression_game():
         # случайное число, которое прячем
         random_number_hide = gl.random_number(1, 9)
         # получаем случайную прогрессию с типом строка
-        string_progression = gl.random_progression(
-            random_number_start,
-            random_number_start + 10 * random_number_step,
-            random_number_step
-        )
+        string_progression = gl.random_progression(random_number_start,
+                                                   random_number_start + 10 *
+                                                   random_number_step,
+                                                   random_number_step)
         # print(string_progression)
         hidden_number = string_progression[random_number_hide]
         # прячем чмсло прогрессии и получаем результат для вопроса юзеру
         calculation_result = gl.calculation_result_progression(
             string_progression,
-            random_number_hide
-        )
+            random_number_hide)
         # задаем задачу юзеру вычислить
         gl.question((' ').join(calculation_result))
         # получаем ответ от юзер
         # answer_user_value = gl.answer_user_int()
         answer_user_value = gl.answer_user()
         # проверяем ответ от юзер
-        result_task = gl.checking_answer(
-            hidden_number,
-            answer_user_value
-            )
+        result_task = gl.checking_answer(hidden_number,
+                                         answer_user_value)
         # выводим результат игры
-        gl.display_game_result(
-            name_user,
-            hidden_number,
-            answer_user_value,
-            result_task
-            )
+        gl.display_game_result(name_user,
+                               hidden_number,
+                               answer_user_value,
+                               result_task)
     # поздравляем юзера
     print(f"Congratulations, {name_user}!")
 

@@ -20,22 +20,16 @@ def brain_prime_game():
         # answer_user_value = gl.answer_user_str()
         answer_user_value = gl.answer_user()
         # вычисляем число введенное юзером - простое?
-        calculation_result = gl.calculation_result_prime(
-            2,
-            99,
-            number_sequence_prime
-            )
+        calculation_result = gl.calculation_result_prime(2,
+                                                         99,
+                                                         number_sequence_prime)
         # проверяем ответ от юзер
-        result_task = gl.checking_answer(
-            calculation_result,
-            answer_user_value
-            )
+        result_task = gl.checking_answer(calculation_result,
+                                         answer_user_value)
         # выводим результат игры
-        gl.display_game_result(
-            name_user,
-            calculation_result,
-            answer_user_value,
-            result_task
-            )
+        gl.display_game_result(name_user,
+                               calculation_result,
+                               answer_user_value,
+                               result_task)
     # поздравляем юзера
     print(f"Congratulations, {name_user}!")

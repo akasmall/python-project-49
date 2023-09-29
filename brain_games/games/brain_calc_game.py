@@ -29,16 +29,9 @@ def brain_calc_game():
         # answer_user_value = gl.answer_user_int()
         answer_user_value = gl.answer_user()
         # проверяем ответ от юзер
-        result_task = gl.checking_answer(
-            calculation_result,
-            answer_user_value
-            )
+        result_task = gl.checking_answer(calculation_result, answer_user_value)
         # выводим результат игры
-        gl.display_game_result(
-            name_user,
-            calculation_result,
-            answer_user_value,
-            result_task
-            )
+        gl.display_game_result(name_user, calculation_result,
+                               answer_user_value, result_task)
     # поздравляем юзера
     print(f"Congratulations, {name_user}!")
