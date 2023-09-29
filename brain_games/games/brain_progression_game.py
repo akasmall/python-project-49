@@ -47,4 +47,4 @@ def brain_progression_game():
     print(f"Congratulations, {name_user}!")
 
 
-brain_progression_game()
+# brain_progression_game()
