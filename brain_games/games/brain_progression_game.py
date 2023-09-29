@@ -33,7 +33,7 @@ def brain_progression_game():
             random_number_hide
         )
         # задаем задачу юзеру вычислить
-        gl.question(calculation_result)
+        gl.question((' ').join(calculation_result))
         # получаем ответ от юзер
         # answer_user_value = gl.answer_user_int()
         answer_user_value = gl.answer_user()
@@ -51,3 +51,6 @@ def brain_progression_game():
             )
     # поздравляем юзера
     print(f"Congratulations, {name_user}!")
+
+
+# brain_progression_game()
