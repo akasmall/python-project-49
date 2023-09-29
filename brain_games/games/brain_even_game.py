@@ -15,13 +15,16 @@ def brain_even_game():
     for i in range(0, 3):
         # запоминаем случайное число
         random_number = gl.random_number(1, 99)
+        print(f'Random number: {random_number}')
         # вычисляем выражение игры
         calculation_result = gl.calculation_result_even(random_number)
+        print(f'Вычисленный ответ: {calculation_result}')
         # задаем вопрос юзеру
         gl.question(random_number)
         # получаем ответ от юзера тип ЧИСЛО
         # answer_user_value = gl.answer_user_str()
         answer_user_value = gl.answer_user()
+        print(f'Ответ юзера: {answer_user_value}')
         # проверяем ответ от юзер
         result_task = gl.checking_answer(
             calculation_result,

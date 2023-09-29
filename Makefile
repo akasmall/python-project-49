@@ -4,8 +4,13 @@ brain-even:
 	poetry run brain-even
 brain-calc:
 	poetry run brain-calc
+brain-gcd:
+	poetry run brain-gcd
+brain-progression:
+	poetry run brain-progression
+brain-prime:
+	poetry run brain-prime
 build:
-	rm dist/*
 	poetry build
 publish:
 	poetry publish --dry-run
