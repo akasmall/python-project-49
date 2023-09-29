@@ -1,10 +1,11 @@
-# file <brain_even_game.py>
+"""file <brain_even_game.py>."""
 
 from brain_games import game_logic as gl
 
 
 # def main():
 def brain_even_game():
+    """Игра: «Проверка на чётность»"""
     # приветствуем игрока
     gl.greeting_user()
     # узнаем имя
@@ -12,7 +13,7 @@ def brain_even_game():
     # объясняем задачу игроку
     gl.task_to_the_user("even")
     # даем три попытки
-    for i in range(0, 3):
+    for _ in range(0, 3):
         # запоминаем случайное число
         random_number = gl.random_number(1, 99)
         print(f'Random number: {random_number}')

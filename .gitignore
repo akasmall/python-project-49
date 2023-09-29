@@ -8,3 +8,5 @@ dist/*.gz
 coverage.xml
 .pytest_cache/
 .idea/
+.vscode/
+setup.cfg

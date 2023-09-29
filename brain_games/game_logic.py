@@ -1,22 +1,23 @@
-import prompt
-import random
+"""Логика игр."""
 import math
+import random
+import prompt
 
 
-# приветствуем юзера
 def greeting_user():
+    """приветствуем юзера."""
     print('Welcome to the Brain Games!')
 
 
-# узнаем имя
 def give_name():
+    """узнаем имя."""
     name = prompt.string('May I have your name? ')
     print(f'Hello, {name}!')
     return name
 
 
-# объясняем задание юзеру
 def task_to_the_user(name_game):
+    """объясняем задание юзеру."""
     if name_game == 'even':
         print('Answer "yes" if the number is even, otherwise answer "no".')
     elif name_game == 'calc':
@@ -31,50 +32,52 @@ def task_to_the_user(name_game):
         print('Something went wrong. Unknown game!')
 
 
-# получаем случайный знак из списка
-# а также получаем случайное число для prime
 def random_sign(sign):
+    """
+    получаем случайный знак из списка
+    а также получаем случайное число для prime.
+    """
     random.shuffle(sign)
     return random.choice(sign)
 
 
-# получаем случайное число
 def random_number(number_1, number_2):
+    """получаем случайное число."""
     return random.randint(number_1, number_2)
 
 
-# получаем случайную прогрессию со случайным шагом
 def random_progression(number_start, number_finish, step):
+    """получаем случайную прогрессию со случайным шагом."""
     # получаем ссылку на генератор от до и шагом
     progression = range(number_start, number_finish, step)
     # создаем список со значением типа строка перебирая генератор
-    result_progression = list(map(str, progression))
-    return result_progression
+    # result_progression = list(map(str, progression))
+    # return result_progression
+    return list(map(str, progression))
 
 
-# задаем вопрос/задачу юзеру
-def question(random_number_1, random_number_2='', random_sign=''):
+def question(random_number_1, random_number_2='', random_sign_question=''):
+    """задаем вопрос/задачу юзеру."""
     if random_number_2 == '':
         print(f'Question: {random_number_1}')
-    elif random_sign == '':
+    elif random_sign_question == '':
         print(f'Question: {random_number_1} {random_number_2}')
     else:
-        print(f'Question: {random_number_1} {random_sign} {random_number_2}')
+        print(f'Question: {random_number_1} '
+              f'{random_sign_question} {random_number_2}')
 
 
-# вычисляем результат для игры brain_even
 def calculation_result_even(value_task):
-    if value_task % 2 == 0:
-        return 'yes'
-    else:
-        return 'no'
+    """вычисляем результат для игры brain_even."""
+    return 'yes' if value_task % 2 == 0 else 'no'
 
 
 def getting_sequence_prime_numbers(lower_number,
-                                   upper_number,
-                                   number_sequence_prime):
+                                   upper_number):
+    """
+    получили последовательность простых чисел от lower_number до upper_number.
+    """
     sequence_prime_numbers = []
-    # получили последовательность простых чисел от lower_number до upper_number
     for number in range(lower_number, upper_number + 1):
         if number > 1:
             for i in range(2, number):
@@ -85,17 +88,19 @@ def getting_sequence_prime_numbers(lower_number,
     return sequence_prime_numbers
 
 
-# получаем послед-ность простых чисел для brain_prime и проверяем ответ юзера
 def calculation_result_prime(lower_number, upper_number,
                              number_sequence_prime):
+    """
+    получаем послед-ность простых чисел для brain_prime и проверяем ответ юзера.
+    """
     sequence_prime_numbers = getting_sequence_prime_numbers(
         lower_number,
-        upper_number,
-        number_sequence_prime)
+        upper_number)
     return 'yes' if number_sequence_prime in sequence_prime_numbers else 'no'
 
 
 def answer_user():
+    """получаем ответ от пользователя."""
     return prompt.string('Your answer: ')
 
 
@@ -108,29 +113,30 @@ def answer_user():
 
 
 def checking_answer(calculation_value, answer_user_value):
-    # проверяем результат even
+    """проверяем результат even."""
     return True if str(calculation_value) == str(answer_user_value) else False
 
 
-# вычисляем результат игры brain_calc
-def expression_calculation(random_number_1, random_number_2, random_sign):
-    result = eval(f'{random_number_1} {random_sign} {random_number_2}')
+def expression_calculation(random_number_1, random_number_2, random_sign_calc):
+    """вычисляем результат игры brain_calc."""
+    result = eval(f'{random_number_1} {random_sign_calc} {random_number_2}')
     return result
 
 
-# вычисляем результат игры brain_gcd
 def calculation_result_gcd(random_number_1, random_number_2):
+    """вычисляем результат игры brain_gcd."""
     return math.gcd(random_number_1, random_number_2)
 
 
-# вычисляем результат игры brain_progression
 def calculation_result_progression(string_progression, random_hide_number):
+    """вычисляем результат игры brain_progression."""
     result = string_progression
     result[random_hide_number] = '..'
     return result
 
 
 def display_game_result(name_user, rigth_value, answer_user_value, task_value):
+    """выводим результат игры."""
     if task_value is False:
         # неправильный ответ юзера
         print(f"'{answer_user_value}' is wrong answer ;(. Correct answer was "

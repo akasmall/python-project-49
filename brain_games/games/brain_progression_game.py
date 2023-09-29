@@ -1,18 +1,19 @@
-# file <brain_progression_game.py>
+"""file <brain_progression_game.py>."""
 
 from brain_games import game_logic as gl
 
 
 # def main():
 def brain_progression_game():
+    """Игра: «Простое ли число?»."""
     # приветствуем игрока
     gl.greeting_user()
-    # узнаем имя юзера
+    # узнаем имя игрока
     name_user = gl.give_name()
     # объясняем задачу игроку
     gl.task_to_the_user("progression")
     # даем три попытки
-    for i in range(0, 3):
+    for _ in range(0, 3):
         # получаем и случайное число начала прогрессии
         random_number_start = gl.random_number(1, 19)
         # случайное число - шаг прогрессии
@@ -26,16 +27,16 @@ def brain_progression_game():
                                                    random_number_step)
         # print(string_progression)
         hidden_number = string_progression[random_number_hide]
-        # прячем чмсло прогрессии и получаем результат для вопроса юзеру
+        # прячем чмсло прогрессии и получаем результат для вопроса игроку
         calculation_result = gl.calculation_result_progression(
             string_progression,
             random_number_hide)
-        # задаем задачу юзеру вычислить
+        # задаем задачу игроку вычислить
         gl.question((' ').join(calculation_result))
-        # получаем ответ от юзер
+        # получаем ответ от игрока
         # answer_user_value = gl.answer_user_int()
         answer_user_value = gl.answer_user()
-        # проверяем ответ от юзер
+        # проверяем ответ от игрока
         result_task = gl.checking_answer(hidden_number,
                                          answer_user_value)
         # выводим результат игры
@@ -43,7 +44,7 @@ def brain_progression_game():
                                hidden_number,
                                answer_user_value,
                                result_task)
-    # поздравляем юзера
+    # поздравляем игрока
     print(f"Congratulations, {name_user}!")
 
 

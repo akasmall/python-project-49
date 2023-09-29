@@ -1,10 +1,11 @@
-# file <brain_calc_game.py>
+"""file <brain_calc_game.py>"""
 
 from brain_games import game_logic as gl
 
 
 # def main():
 def brain_calc_game():
+    """Игра: «Калькулятор»"""
     # приветствуем игрока
     gl.greeting_user()
     # узнаем имя юзера
@@ -12,7 +13,7 @@ def brain_calc_game():
     # объясняем задачу игроку
     gl.task_to_the_user("calc")
     # даем три попытки
-    for i in range(0, 3):
+    for _ in range(0, 3):
         # определяем случайный знак
         random_sign = gl.random_sign(['+', '-', '*'])
         # получаем и запоминаем два случайных числа
