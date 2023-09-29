@@ -70,8 +70,9 @@ def calculation_result_even(value_task):
         return 'no'
 
 
-# получаем послед-ность простых чисел для brain_prime и проверяем ответ юзера
-def calculation_result_prime(lower_number, upper_number, number_sequence_prime):
+def getting_sequence_prime_numbers(lower_number,
+                                   upper_number,
+                                   number_sequence_prime):
     sequence_prime_numbers = []
     # получили последовательность простых чисел от lower_number до upper_number
     for number in range(lower_number, upper_number + 1):
@@ -81,6 +82,16 @@ def calculation_result_prime(lower_number, upper_number, number_sequence_prime):
                     break
             else:
                 sequence_prime_numbers.append(number)
+    return sequence_prime_numbers
+
+
+# получаем послед-ность простых чисел для brain_prime и проверяем ответ юзера
+def calculation_result_prime(lower_number, upper_number,
+                             number_sequence_prime):
+    sequence_prime_numbers = getting_sequence_prime_numbers(
+        lower_number,
+        upper_number,
+        number_sequence_prime)
     return 'yes' if number_sequence_prime in sequence_prime_numbers else 'no'
 
 

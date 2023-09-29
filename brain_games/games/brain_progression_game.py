@@ -20,8 +20,10 @@ def brain_progression_game():
         # случайное число, которое прячем
         random_number_hide = gl.random_number(1, 9)
         # получаем случайную прогрессию с типом строка
+        length_progression = 10
         string_progression = gl.random_progression(random_number_start,
-                                                   random_number_start + 10 *
+                                                   random_number_start +
+                                                   length_progression *
                                                    random_number_step,
                                                    random_number_step)
         # print(string_progression)
