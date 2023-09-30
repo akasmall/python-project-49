@@ -17,13 +17,18 @@ def brain_calc_game():
         # определяем случайный знак
         random_sign = gl.random_sign(['+', '-', '*'])
         # получаем и запоминаем два случайных числа
-        random_number_1 = gl.random_number(1, 9)
-        random_number_2 = gl.random_number(1, 9)
+        random_number_1 = gl.random_number(1, 19)
+        random_number_2 = gl.random_number(1, 19)
         # вычисляем выражение игры
         calculation_result = gl.expression_calculation(random_number_1,
                                                        random_number_2,
                                                        random_sign
                                                        )
+        # calculation_result = gl.expression_calculation(
+        #     random_number_1,
+        #     random_number_2,
+        #     random_sign
+        #     )
         # задаем задачу юзеру вычислить
         gl.question(random_number_1, random_number_2, random_sign)
         # получаем ответ юзера
@@ -36,3 +41,6 @@ def brain_calc_game():
                                answer_user_value, result_task)
     # поздравляем юзера
     print(f"Congratulations, {name_user}!")
+
+
+# brain_calc_game()

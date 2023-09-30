@@ -91,7 +91,8 @@ def getting_sequence_prime_numbers(lower_number,
 def calculation_result_prime(lower_number, upper_number,
                              number_sequence_prime):
     """
-    получаем послед-ность простых чисел для brain_prime и проверяем ответ юзера.
+    получаем последовательность простых чисел для brain_prime и
+    проверяем ответ юзера.
     """
     sequence_prime_numbers = getting_sequence_prime_numbers(
         lower_number,
@@ -117,10 +118,33 @@ def checking_answer(calculation_value, answer_user_value):
     return True if str(calculation_value) == str(answer_user_value) else False
 
 
+def calc_plus(operand_first, operand_second):
+    """ вычисляем в игре калькулятор сумму. """
+    return operand_first + operand_second
+
+
+def calc_minus(operand_first, operand_second):
+    """ вычисляем в игре калькулятор разницу. """
+    return operand_first - operand_second
+
+
+def calc_multiply(operand_first, operand_second):
+    """ вычисляем в игре калькулятор умножение. """
+    return operand_first * operand_second
+
+
 def expression_calculation(random_number_1, random_number_2, random_sign_calc):
     """вычисляем результат игры brain_calc."""
-    result = eval(f'{random_number_1} {random_sign_calc} {random_number_2}')
-    return result
+    dist_sign = {
+        '+': calc_plus,
+        '-': calc_minus,
+        '*': calc_multiply,
+    }
+    if dist_sign.get(random_sign_calc, False) is not False:
+        return dist_sign[random_sign_calc](random_number_1, random_number_2)
+    else:
+        print('Something went wrong!')
+        exit()
 
 
 def calculation_result_gcd(random_number_1, random_number_2):
