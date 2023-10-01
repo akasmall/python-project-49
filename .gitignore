@@ -10,3 +10,6 @@ coverage.xml
 .idea/
 .vscode/
 setup.cfg
+example_README.md
+decor/
+test_aka/
