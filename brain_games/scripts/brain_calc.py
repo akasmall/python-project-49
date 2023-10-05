@@ -5,6 +5,7 @@ from brain_games.games import brain_calc_game
 
 
 def main():
+    """ игра """
     brain_calc_game.brain_calc_game()
 
 

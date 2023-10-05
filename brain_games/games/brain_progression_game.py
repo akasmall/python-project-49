@@ -3,49 +3,62 @@
 from brain_games import game_logic as gl
 
 
+def task_user():
+    """объясняем задачу игроку"""
+    print('What number is missing in the progression?')
+
+
+def question_user():
+    """ получаем  случайное число. """
+    # получаем и случайное число начала прогрессии
+    random_number_start = gl.random.randint(1, 19)
+    # случайное число - шаг прогрессии
+    random_number_step = gl.random.randint(1, 9)
+    # случайное число по порядку из длины прогрессии, которое спрячем
+    random_number_hide = gl.random.randint(2, 8)
+    # получаем случайную прогрессию со случайным шагом.
+    random_number_finish = random_number_start + 10 * random_number_step
+    # случайное число по порядку из длины прогрессии, которое спрячем
+    progression = range(random_number_start,
+                        random_number_finish,
+                        random_number_step)
+    string_progression_question = list(map(str, progression))
+    # # прячем число прогрессии и получаем результат для вопроса игроку
+    result = gl.calculation_result_progression(
+        string_progression_question,
+        random_number_hide)
+
+    result = f'{" ".join(result)}'
+    return result
+
+
+def calculation_result(str_expression):
+    """вычисляем результат игры brain_calc."""
+    # получаем и случайное число начала прогрессии
+    list_progression = str_expression.split()
+    hidden_number = list_progression.index('..')
+    if hidden_number < 8:
+        index_plus_2 = int(list_progression[hidden_number + 2])
+        index_plus_1 = int(list_progression[hidden_number + 1])
+        result_number_upper = index_plus_2 - index_plus_1
+        task_result = index_plus_1 - result_number_upper
+    else:
+        index_plus_1 = int(list_progression[hidden_number - 1])
+        index_plus_2 = int(list_progression[hidden_number - 2])
+        result_number_lower = index_plus_1 - index_plus_2
+        task_result = index_plus_1 + result_number_lower
+    return str(task_result)
+
+
 # def main():
 def brain_progression_game():
-    """Игра: «Простое ли число?»."""
-    # приветствуем игрока
-    gl.greeting_user()
-    # узнаем имя игрока
-    name_user = gl.give_name()
-    # объясняем задачу игроку
-    gl.task_to_the_user("progression")
-    # даем три попытки
-    for _ in range(0, 3):
-        # получаем и случайное число начала прогрессии
-        random_number_start = gl.random_number(1, 19)
-        # случайное число - шаг прогрессии
-        random_number_step = gl.random_number(1, 9)
-        # случайное число, которое прячем
-        random_number_hide = gl.random_number(1, 9)
-        # получаем случайную прогрессию с типом строка
-        random_number_finish = random_number_start + 10 * random_number_step
-        string_progression = gl.random_progression(random_number_start,
-                                                   random_number_finish,
-                                                   random_number_step)
-        # print(string_progression)
-        hidden_number = string_progression[random_number_hide]
-        # прячем чмсло прогрессии и получаем результат для вопроса игроку
-        calculation_result = gl.calculation_result_progression(
-            string_progression,
-            random_number_hide)
-        # задаем задачу игроку вычислить
-        gl.question((' ').join(calculation_result))
-        # получаем ответ от игрока
-        # answer_user_value = gl.answer_user_int()
-        answer_user_value = gl.answer_user()
-        # проверяем ответ от игрока
-        result_task = gl.checking_answer(hidden_number,
-                                         answer_user_value)
-        # выводим результат игры
-        gl.display_game_result(name_user,
-                               hidden_number,
-                               answer_user_value,
-                               result_task)
-    # поздравляем игрока
-    print(f"Congratulations, {name_user}!")
+    """
+    Игра: «Простое ли число?».
+    task_user - задача для юзера
+    question_user - текст ждля вопроса
+    calculation_result - результат задачи
+    """
+    gl.beginning_game(task_user, question_user, calculation_result)
 
 
 # brain_progression_game()

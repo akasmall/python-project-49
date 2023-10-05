@@ -1,38 +1,39 @@
 """file <brain_gcd_game.py>."""
-
+import math
 from brain_games import game_logic as gl
 
 
+def task_user():
+    """объясняем задачу игроку"""
+    print('Find the greatest common divisor of given numbers.')
+
+
+def question_user():
+    """ получаем  случайное число. """
+    # получаем и запоминаем два случайных числа
+    random_number_1 = str(gl.random.randint(2, 99))
+    random_number_2 = str(gl.random.randint(2, 99))
+    result = f'{random_number_1} {random_number_2}'
+    return result
+
+
+def calculation_result(str_expression):
+    """вычисляем результат игры brain_calc."""
+    # получаем и запоминаем два случайных числа
+    random_number_1, random_number_2 = str_expression.split()
+    value_number_1 = int(random_number_1)
+    value_number_2 = int(random_number_2)
+    return math.gcd(value_number_1, value_number_2)
+
+
 def brain_gcd_game():
-    """Игра: «Наибольший общий делитель (НОД)»"""
-    # приветствуем игрока
-    gl.greeting_user()
-    # узнаем имя игрока
-    name_user = gl.give_name()
-    # объясняем задачу игроку
-    gl.task_to_the_user("gcd")
-    # даем три попытки
-    for _ in range(0, 3):
-        # получаем и запоминаем два случайных числа
-        random_number_1 = gl.random_number(1, 99)
-        random_number_2 = gl.random_number(1, 99)
-        # вычисляем выражение игры
-        calculation_result = gl.calculation_result_gcd(random_number_1,
-                                                       random_number_2)
-        # задаем задачу игроку вычислить
-        gl.question(random_number_1, random_number_2)
-        # получаем ответ от игрока вводом ЧИСЛА
-        # answer_user_value = gl.answer_user_int()
-        answer_user_value = gl.answer_user()
-        # проверяем ответ от игрока
-        result_task = gl.checking_answer(calculation_result, answer_user_value)
-        # выводим результат игры
-        gl.display_game_result(
-            name_user,
-            calculation_result,
-            answer_user_value,
-            result_task)    # поздравляем игрока
-    print(f"Congratulations, {name_user}!")
+    """
+    Игра: «Наибольший общий делитель (НОД)»
+    task_user - задача для юзера
+    question_user - текст ждля вопроса
+    calculation_result - результат задачи
+    """
+    gl.beginning_game(task_user, question_user, calculation_result)
 
 
 # brain_gcd_game()

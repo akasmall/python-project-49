@@ -5,6 +5,7 @@ from brain_games.games import brain_gcd_game
 
 
 def main():
+    """игра"""
     brain_gcd_game.brain_gcd_game()
 
 
