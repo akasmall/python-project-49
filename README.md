@@ -25,40 +25,40 @@
 4. prompt версии 0.4.1 и выше
 ~~~
 ## Как установить
-#####1. [установить **python**](https://github.com/Hexlet/ru-instructions/blob/main/python.md)
-######2. установить **pip**, с версии python 3.4 идет в пакете и/или обновить **pip**
+##### 1. [установить **python**](https://github.com/Hexlet/ru-instructions/blob/main/python.md)
+###### 2. установить **pip**, с версии python 3.4 идет в пакете и/или обновить **pip**
 ~~~
 $ # проверка pip
 python3 -m pip --version
 $ # если требуется обновление, то так:
 python3 -m pip install --upgrade --user pip
 ~~~
-######3. [установить менеджер пакетов **poetry**](https://python-poetry.org/docs/)
+###### 3. [установить менеджер пакетов **poetry**](https://python-poetry.org/docs/)
 после установки 
 ~~~
 $ # проверить что работает и версию
 poetry --version
 ~~~
 
-######4. создание виртуального окружения в директории проекта
+###### 4. создание виртуального окружения в директории проекта
 ~~~
 $ # выполните команду
 poetry config virtualenvs.in-project true
 ~~~
-######5. склонируйте [репозиторий проекта](https://github.com/akasmall/python-project-49) с GitHub
+###### 5. склонируйте [репозиторий проекта](https://github.com/akasmall/python-project-49) с GitHub
 ~~~
 git clone git@github.com:akasmall/python-project-49.git
 ~~~
-######6. Подключите в зависимости библиотеку **prompt** командой
+###### 6. Подключите в зависимости библиотеку **prompt** командой
 ```
 poetry add prompt
 ```
-######7. собирите проект
+###### 7. собирите проект
 ```
 make build
 ```
 
-######8. установите проект
+###### 8. установите проект
 ```
 make package-install
 ```
