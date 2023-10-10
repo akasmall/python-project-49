@@ -1,21 +1,18 @@
 """file <brain_calc_game.py>"""
-from brain_games import game_logic as gl
-
-
-def task_user():
-    """объясняем задачу игроку"""
-    print('What is the result of the expression?')
+import random
+# from brain_games import game_logic as gl
 
 
 def question_user():
     """ получаем  случайное число. """
     # получаем и запоминаем два случайных числа
-    random_number_1 = str(gl.random.randint(1, 19))
-    random_number_2 = str(gl.random.randint(1, 19))
+    random_number_1 = str(random.randint(1, 19))
+    random_number_2 = str(random.randint(1, 19))
     # определяем случайный знак
     sign = ['+', '-', '*']
-    random_sign = gl.random.choice(sign)
+    random_sign = random.choice(sign)
     result = f'{random_number_1} {random_sign} {random_number_2}'
+    # return result, random_sign
     return result
 
 
@@ -56,14 +53,15 @@ def calculation_result(str_expression):
         exit()
 
 
-def brain_calc_game():
+def calc_game():
     """
     Игра: «Калькулятор»
     task_user - задача для юзера
     question_user - текст ждля вопроса
     calculation_result - результат задачи
     """
-    gl.beginning_game(task_user, question_user, calculation_result)
+    task_user = 'What is the result of the expression?'
+    return task_user, question_user, calculation_result
 
 
 # brain_calc_game()

@@ -1,18 +1,13 @@
 """file <brain_gcd_game.py>."""
 import math
-from brain_games import game_logic as gl
-
-
-def task_user():
-    """объясняем задачу игроку"""
-    print('Find the greatest common divisor of given numbers.')
+import random
 
 
 def question_user():
     """ получаем  случайное число. """
     # получаем и запоминаем два случайных числа
-    random_number_1 = str(gl.random.randint(2, 99))
-    random_number_2 = str(gl.random.randint(2, 99))
+    random_number_1 = str(random.randint(2, 99))
+    random_number_2 = str(random.randint(2, 99))
     result = f'{random_number_1} {random_number_2}'
     return result
 
@@ -26,14 +21,15 @@ def calculation_result(str_expression):
     return math.gcd(value_number_1, value_number_2)
 
 
-def brain_gcd_game():
+def gcd_game():
     """
     Игра: «Наибольший общий делитель (НОД)»
     task_user - задача для юзера
     question_user - текст ждля вопроса
     calculation_result - результат задачи
     """
-    gl.beginning_game(task_user, question_user, calculation_result)
+    task_user = 'Find the greatest common divisor of given numbers.'
+    return task_user, question_user, calculation_result
 
 
 # brain_gcd_game()
