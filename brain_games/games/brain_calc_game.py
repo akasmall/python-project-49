@@ -1,6 +1,6 @@
 """file <brain_calc_game.py>"""
 import random
-TASK_USER = 'Answer "yes" if the number is even, otherwise answer "no".'
+TASK_USER = 'What is the result of the expression?'
 
 
 def calc_plus(operand_first, operand_second):
