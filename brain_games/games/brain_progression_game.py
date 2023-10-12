@@ -1,5 +1,6 @@
 """file <brain_progression_game.py>."""
 import random
+TASK_USER = 'What number is missing in the progression?'
 
 
 def calculation_result_progression(string_progression, random_hide_number):
@@ -25,12 +26,27 @@ def question_user():
                         random_number_step)
     string_progression_question = list(map(str, progression))
     # # прячем число прогрессии и получаем результат для вопроса игроку
-    result = calculation_result_progression(
+    value_question = calculation_result_progression(
         string_progression_question,
         random_number_hide)
 
-    result = f'{" ".join(result)}'
-    return result
+    value_question = f'{" ".join(value_question)}'
+
+    list_expression = value_question.split()
+    hidden_number = list_expression.index('..')
+    if hidden_number < 8:
+        index_plus_2 = int(list_expression[hidden_number + 2])
+        index_plus_1 = int(list_expression[hidden_number + 1])
+        result_number_upper = index_plus_2 - index_plus_1
+        value_solution = index_plus_1 - result_number_upper
+    else:
+        index_plus_1 = int(list_expression[hidden_number - 1])
+        index_plus_2 = int(list_expression[hidden_number - 2])
+        result_number_lower = index_plus_1 - index_plus_2
+        value_solution = index_plus_1 + result_number_lower
+    # return str(task_result)
+
+    return (value_question, value_solution)
 
 
 def calculation_result(str_expression):
@@ -51,16 +67,14 @@ def calculation_result(str_expression):
     return str(task_result)
 
 
-# def main():
-def progression_game():
-    """
-    Игра: «Простое ли число?».
-    task_user - задача для юзера
-    question_user - текст ждля вопроса
-    calculation_result - результат задачи
-    """
-    task_user = 'What number is missing in the progression?'
-    return task_user, question_user, calculation_result
-
+# def progression_game():
+#     """
+#     Игра: «Простое ли число?».
+#     task_user - задача для юзера
+#     question_user - текст ждля вопроса
+#     calculation_result - результат задачи
+#     """
+#     task_user = 'What number is missing in the progression?'
+#     return task_user, question_user, calculation_result
 
 # brain_progression_game()
