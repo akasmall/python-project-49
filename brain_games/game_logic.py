@@ -2,6 +2,20 @@
 import prompt
 
 
+def print_result_task(name_user, value_solution_task,
+                      answer_user_value, result_task):
+    """выводим результат игры"""
+    if result_task is False:
+        # неправильный ответ юзера
+        print(f"'{answer_user_value}' is wrong answer ;(. "
+              f"Correct answer was "
+              f"'{value_solution_task}'.\n"
+              f"Let's try again, {name_user}!")
+        exit()
+    else:
+        print('Correct!')
+
+
 def beginning_game(game_module):
     """начало модуля логики"""
     # greeting_user()
@@ -21,15 +35,17 @@ def beginning_game(game_module):
         # получаем ответ от юзера
         answer_user_value = prompt.string('Your answer: ')
         # проверяем ответ от юзер
-        result = True if str(value_solution_task) == str(
+        result_task = True if str(value_solution_task) == str(
             answer_user_value) else False
-        if result is False:
-            # неправильный ответ юзера
-            print(f"'{answer_user_value}' is wrong answer ;(. "
-                  f"Correct answer was "
-                  f"'{value_solution_task}'.\n"
-                  f"Let's try again, {name_user}!")
-            exit()
-        else:
-            print('Correct!')
+        print_result_task(name_user, value_solution_task,
+                          answer_user_value, result_task)
+        # if result is False:
+        #     # неправильный ответ юзера
+        #     print(f"'{answer_user_value}' is wrong answer ;(. "
+        #           f"Correct answer was "
+        #           f"'{value_solution_task}'.\n"
+        #           f"Let's try again, {name_user}!")
+        #     exit()
+        # else:
+        #     print('Correct!')
     print(f"Congratulations, {name_user}!")
