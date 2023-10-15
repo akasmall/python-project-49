@@ -1,27 +1,12 @@
-"""file <brain_even_game.py>."""
+"""файл игрового модуля brain_even_game"""
 import random
+
+TASK_USER = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
 def question_user():
-    """ получаем  случайное число. """
-    # получаем и запоминаем два случайных числа
-    return str(random.randint(1, 99))
+    '''получаем строку вопроса и результат задачи brain_even.'''
+    str_question = random.randint(1, 99)
+    value_solution_task = 'yes' if str_question % 2 == 0 else 'no'
 
-
-def calculation_result(str_expression):
-    """вычисляем результат для игры brain_even."""
-    return 'yes' if int(str_expression) % 2 == 0 else 'no'
-
-
-def even_game():
-    """
-    зовем общую логику игры на выполнение.
-    task_user - задача для юзера
-    question_user - текст ждля вопроса
-    calculation_result - результат задачи
-    """
-    task_user = 'Answer "yes" if the number is even, otherwise answer "no".'
-    return task_user, question_user, calculation_result
-
-
-# brain_even_game()
+    return str(str_question), value_solution_task

@@ -1,41 +1,11 @@
-"""file <brain_progression_game.py>."""
+"""файл игрового модуля brain_progression_game."""
 import random
 
-
-def calculation_result_progression(string_progression, random_hide_number):
-    """вычисляем результат игры brain_progression."""
-    result = string_progression
-    result[random_hide_number] = '..'
-    return result
-
-
-def question_user():
-    """ получаем  случайное число. """
-    # получаем и случайное число начала прогрессии
-    random_number_start = random.randint(1, 19)
-    # случайное число - шаг прогрессии
-    random_number_step = random.randint(1, 9)
-    # случайное число по порядку из длины прогрессии, которое спрячем
-    random_number_hide = random.randint(2, 8)
-    # получаем случайную прогрессию со случайным шагом.
-    random_number_finish = random_number_start + 10 * random_number_step
-    # случайное число по порядку из длины прогрессии, которое спрячем
-    progression = range(random_number_start,
-                        random_number_finish,
-                        random_number_step)
-    string_progression_question = list(map(str, progression))
-    # # прячем число прогрессии и получаем результат для вопроса игроку
-    result = calculation_result_progression(
-        string_progression_question,
-        random_number_hide)
-
-    result = f'{" ".join(result)}'
-    return result
+TASK_USER = 'What number is missing in the progression?'
 
 
 def calculation_result(str_expression):
     """вычисляем результат игры brain_calc."""
-    # получаем и случайное число начала прогрессии
     list_progression = str_expression.split()
     hidden_number = list_progression.index('..')
     if hidden_number < 8:
@@ -51,16 +21,26 @@ def calculation_result(str_expression):
     return str(task_result)
 
 
-# def main():
-def progression_game():
-    """
-    Игра: «Простое ли число?».
-    task_user - задача для юзера
-    question_user - текст ждля вопроса
-    calculation_result - результат задачи
-    """
-    task_user = 'What number is missing in the progression?'
-    return task_user, question_user, calculation_result
+def question_user():
+    """ получаем строку вопроса и результат задачи brain_progression"""
+    len_progression = 10
+    # получаем случайное число начала прогрессии
+    random_number_start = random.randint(1, 19)
+    # случайное число - шаг прогрессии
+    random_number_step = random.randint(1, 9)
+    # случайное число по порядку из длины прогрессии, которое спрячем
+    random_number_hide = random.randint(2, 8)
+    # получаем случайное число конца прогрессии
+    random_number_finish = (random_number_start +
+                            len_progression * random_number_step)
+    # получаем прогрессию
+    progression = range(random_number_start,
+                        random_number_finish, random_number_step)
+    string_progression = list(map(str, progression))
+    # # прячем число прогрессии
+    string_progression[random_number_hide] = '..'
+    str_question = f'{" ".join(string_progression)}'
+    # получаем результат для вопроса игроку
+    value_solution_task = calculation_result(str_question)
 
-
-# brain_progression_game()
+    return str_question, value_solution_task

@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-"""file <brain_even.py>"""
+"""игра brain_even"""
 from brain_games import game_logic as gl
 from brain_games.games import brain_even_game as b_e_g
 
 
 def main():
-    """игра brain_even.py"""
-    tuple_even_game = b_e_g.even_game()
-    gl.beginning_game(*tuple_even_game)
+    """начинаем играть в brain_even"""
+    gl.beginning_game(b_e_g)
 
 
 if __name__ == '__main__':

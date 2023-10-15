@@ -1,77 +1,35 @@
-"""Логика игр."""
-import random
+"""общий модуль логики игр"""
 import prompt
 
 
-def greeting_user():
-    """приветствуем юзера."""
+def beginning_game(game_module):
+    """начало модуля логики"""
+    # greeting_user()
     print('Welcome to the Brain Games!')
-
-
-def give_name():
-    """узнаем имя."""
+    # узнаем имя
     name_user = prompt.string('May I have your name? ')
     print(f'Hello, {name_user}!')
-    return name_user
-
-
-def random_number(number_1, number_2):
-    """получаем случайное число."""
-    return random.randint(number_1, number_2)
-
-
-def question(str_question):
-    """задаем вопрос/задачу юзеру."""
-    print(f'Question: {str_question}')
-
-
-def answer_user():
-    """получаем ответ от пользователя."""
-    return prompt.string('Your answer: ')
-
-
-def checking_answer(calculation_value, answer_user_value):
-    """проверяем результат."""
-    return True if str(calculation_value) == str(answer_user_value) else False
-
-
-def display_game_result(name_user, rigth_value, answer_user_value, task_value):
-    """выводим результат игры."""
-    if task_value is False:
-        # неправильный ответ юзера
-        print(f"'{answer_user_value}' is wrong answer ;(. Correct answer was "
-              f"'{rigth_value}'.\n"
-              f"Let's try again, {name_user}!")
-        exit()
-    else:
-        # правильный ответ юзера
-        print('Correct!')
-
-
-def beginning_game(task_user, question_user, calculation_result):
-    """основная функция."""
-    greeting_user()
-    # узнаем имя
-    name_user = give_name()
     # объясняем задачу игроку
-    print(task_user)
+    print(game_module.TASK_USER)
     # задаем три задачи
     for _ in range(3):
-        # получаем выражение для вопроса
-        question_print = question_user()
-        # вычисляем выражение игры
-        task_result = calculation_result(question_print)
-        # print(f'Вычисленный ответ: {task_result}')
+        # получаем значение для вопроса и вычисляем правильнй результат игры
+        value_question, value_solution_task = game_module.question_user()
+        # print(f'Вычисленный ответ: {value_solution_task}')
         # задаем вопрос юзеру
-        question(question_print)
+        print(f'Question: {value_question}')
         # получаем ответ от юзера
-        answer_user_value = answer_user()
-        # print(f'Ответ юзера: {answer_user_value}')
+        answer_user_value = prompt.string('Your answer: ')
         # проверяем ответ от юзер
-        user_result = checking_answer(task_result, answer_user_value)
-        # print(f'Результат юзера: {answer_user_value}')
-        # выводим результат игры
-        display_game_result(name_user, task_result,
-                            answer_user_value, user_result)
-    # поздравляем юзера
+        result = True if str(value_solution_task) == str(
+            answer_user_value) else False
+        if result is False:
+            # неправильный ответ юзера
+            print(f"'{answer_user_value}' is wrong answer ;(. "
+                  f"Correct answer was "
+                  f"'{value_solution_task}'.\n"
+                  f"Let's try again, {name_user}!")
+            exit()
+        else:
+            print('Correct!')
     print(f"Congratulations, {name_user}!")
