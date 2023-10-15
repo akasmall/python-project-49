@@ -23,7 +23,7 @@ def calculation_result(str_expression):
 
 def question_user():
     """ получаем строку вопроса и результат задачи brain_progression"""
-    len_progression = 10
+    len_sequence = 10
     # получаем случайное число начала прогрессии
     random_number_start = random.randint(1, 19)
     # случайное число - шаг прогрессии
@@ -31,8 +31,8 @@ def question_user():
     # случайное число по порядку из длины прогрессии, которое спрячем
     random_number_hide = random.randint(2, 8)
     # получаем случайное число конца прогрессии
-    random_number_finish = (random_number_start +
-                            len_progression * random_number_step)
+    random_number_finish = random_number_start + \
+        len_sequence * random_number_step
     # получаем прогрессию
     progression = range(random_number_start,
                         random_number_finish, random_number_step)
