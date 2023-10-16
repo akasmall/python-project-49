@@ -37,7 +37,7 @@ def calculation_result(str_progression):
     list_progression = str_progression.split()
     hidden_number = list_progression.index('..')
     number_step_check = NUMBER_STEP_END
-    if hidden_number < number_step_check-1:
+    if hidden_number < number_step_check - 1:
         index_plus_2 = int(list_progression[hidden_number + 2])
         index_plus_1 = int(list_progression[hidden_number + 1])
         result_number_upper = index_plus_2 - index_plus_1
