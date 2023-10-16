@@ -18,7 +18,6 @@ def print_result_task(name_user, value_solution_task,
 
 def beginning_game(game_module):
     """начало модуля логики"""
-    # greeting_user()
     print('Welcome to the Brain Games!')
     # узнаем имя
     name_user = prompt.string('May I have your name? ')
@@ -39,13 +38,4 @@ def beginning_game(game_module):
             answer_user_value) else False
         print_result_task(name_user, value_solution_task,
                           answer_user_value, result_task)
-        # if result is False:
-        #     # неправильный ответ юзера
-        #     print(f"'{answer_user_value}' is wrong answer ;(. "
-        #           f"Correct answer was "
-        #           f"'{value_solution_task}'.\n"
-        #           f"Let's try again, {name_user}!")
-        #     exit()
-        # else:
-        #     print('Correct!')
     print(f"Congratulations, {name_user}!")
