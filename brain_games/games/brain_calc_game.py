@@ -2,6 +2,8 @@
 import random
 
 TASK_USER = 'What is the result of the expression?'
+NUMBER_START = 1
+NUMBER_END = 19
 
 
 def calc_plus(operand_first, operand_second):
@@ -10,7 +12,7 @@ def calc_plus(operand_first, operand_second):
 
 
 def calc_minus(operand_first, operand_second):
-    """ вычисляем в игре калькулятор разницу. """
+    """ вычисляем в игре калькулятор разницу."""
     return operand_first - operand_second
 
 
@@ -19,11 +21,11 @@ def calc_multiply(operand_first, operand_second):
     return operand_first * operand_second
 
 
-def question_user():
+def get_question_solution():
     """ получаем строку вопроса и результат задачи brain_calc """
     # получаем и запоминаем два случайных числа
-    random_number_1 = str(random.randint(1, 19))
-    random_number_2 = str(random.randint(1, 19))
+    random_number_1 = str(random.randint(NUMBER_START, NUMBER_END))
+    random_number_2 = str(random.randint(NUMBER_START, NUMBER_END))
     # определяем случайный знак
     sign = ['+', '-', '*']
     random_sign = random.choice(sign)
@@ -38,4 +40,4 @@ def question_user():
     value_solution_task = dist_sign[random_sign](
         int(random_number_1), int(random_number_2))
 
-    return str_question, value_solution_task
+    return str_question, str(value_solution_task)

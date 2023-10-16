@@ -5,8 +5,8 @@ from brain_games.games import brain_gcd_game as b_g_g
 
 
 def main():
-    """начинаем играть в brain_gcd"""
-    gl.beginning_game(b_g_g)
+    """начинаем играть в brain_gcd """
+    gl.started_finished(b_g_g)
 
 
 if __name__ == '__main__':

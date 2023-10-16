@@ -5,7 +5,7 @@ from brain_games.cli import welcome_user
 
 
 def main():
-    """начинаем играть в brain_games"""
+    """начинаем играть в brain_games """
     print('Welcome to the Brain Games!')
     welcome_user()
 
