@@ -16,7 +16,7 @@ def get_progression():
     len_sequence = LEN_SEQUENCE
     random_number_start = random.randint(NUMBER_START, NUMBER_END)
     random_number_step = random.randint(NUMBER_STEP_START, NUMBER_STEP_END)
-    random_number_finish = random_number_start + \
+    random_number_finish = random_number_start +\
         len_sequence * random_number_step
     progression = range(random_number_start,
                         random_number_finish, random_number_step)
