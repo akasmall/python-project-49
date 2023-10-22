@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """игра brain_progression"""
-from brain_games import engine as gl
-from brain_games.games import brain_progression_game as b_pro_g
+from brain_games.engine import launch_game
+from brain_games.games import progression
 
 
 def main():
     """начинаем играть в brain_progression """
-    gl.start_game(b_pro_g)
+    launch_game(progression)
 
 
 if __name__ == '__main__':

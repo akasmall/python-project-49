@@ -1,43 +1,43 @@
 """файл игрового модуля brain_calc_game"""
 import random
 
-TASK_USER = 'What is the result of the expression?'
-NUMBER_START = 1
-NUMBER_END = 19
+RULES = 'What is the result of the expression?'
+LOWER_BOUND = 1
+UPPER_BOUND = 19
 
 
-def calc_plus(operand_first, operand_second):
+def get_addition(operand_first, operand_second):
     """ вычисляем в игре калькулятор сумму. """
     return operand_first + operand_second
 
 
-def calc_minus(operand_first, operand_second):
+def get_subtraction(operand_first, operand_second):
     """ вычисляем в игре калькулятор разницу."""
     return operand_first - operand_second
 
 
-def calc_multiply(operand_first, operand_second):
+def get_multiply(operand_first, operand_second):
     """ вычисляем в игре калькулятор умножение. """
     return operand_first * operand_second
 
 
-def get_question_solution():
+def get_question_solution(lower_bound=LOWER_BOUND, upper_bound=UPPER_BOUND):
     """ получаем строку вопроса и результат задачи brain_calc """
     # получаем и запоминаем два случайных числа
-    random_number_1 = str(random.randint(NUMBER_START, NUMBER_END))
-    random_number_2 = str(random.randint(NUMBER_START, NUMBER_END))
+    number_1 = str(random.randint(lower_bound, upper_bound))
+    number_2 = str(random.randint(lower_bound, upper_bound))
     # определяем случайный знак
     sign = ['+', '-', '*']
-    random_sign = random.choice(sign)
-    str_question = f'{random_number_1} {random_sign} {random_number_2}'
+    choice_sign = random.choice(sign)
+    question = f'{number_1} {choice_sign} {number_2}'
     # словарь знаков
-    dist_sign = {
-        '+': calc_plus,
-        '-': calc_minus,
-        '*': calc_multiply,
+    symbol_function = {
+        '+': get_addition,
+        '-': get_subtraction,
+        '*': get_multiply,
     }
     # ищем, полученный случайный знак в словаре и зовем вычисление
-    value_solution_task = dist_sign[random_sign](
-        int(random_number_1), int(random_number_2))
+    correct_answer = symbol_function[choice_sign](
+        int(number_1), int(number_2))
 
-    return str_question, str(value_solution_task)
+    return question, str(correct_answer)
