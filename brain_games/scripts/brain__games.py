@@ -1,11 +1,8 @@
 #!/usr/bin/env python3
-"""игра brain_games"""
-
 from brain_games.cli import welcome_user
 
 
 def main():
-    """начинаем играть в brain_games """
     print('Welcome to the Brain Games!')
     welcome_user()
 

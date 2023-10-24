@@ -1,27 +1,25 @@
-"""файл игрового модуля brain_prime_game"""
 import random
 
 RULES = 'Answer "yes" if given number is prime. Otherwise answer "no".'
-LOWER_BOUND = 2
-UPPER_BOUND = 99
+PRIME_LOWER_BOUND = 1     # должно быть > 0
+PRIME_UPPER_BOUND = 99
 
 
-def is_number_prime(number, lower_bound):
-    """проверка простого числа"""
-    if number < lower_bound + 2:
+def is_number_prime(number):
+    if number < 4:
         return True
-    sequence_prime_numbers = 0
-    for current_number in range(lower_bound, number):
-        if number % current_number == 0:
-            sequence_prime_numbers = 1
-            break
-    return sequence_prime_numbers == 0
+    divisor = 2
+    while divisor <= number / 2:
+        if not number % divisor:
+            return False
+        divisor += 1
+    return True
 
 
-def get_question_solution(lower_bound=LOWER_BOUND, upper_bound=UPPER_BOUND):
-    """получаем случайное число из диапазона и результат задачи brain_prime"""
+def gets_question_solution(
+        lower_bound=PRIME_LOWER_BOUND, upper_bound=PRIME_UPPER_BOUND):
     number = random.randint(lower_bound, upper_bound)
-    if is_number_prime(number, lower_bound):
+    if is_number_prime(number):
         correct_answer = 'yes'
     else:
         correct_answer = 'no'
