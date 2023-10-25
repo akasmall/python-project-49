@@ -1,13 +1,13 @@
 import random
 
 RULES = 'Answer "yes" if given number is prime. Otherwise answer "no".'
-PRIME_LOWER_BOUND = 1     # должно быть > 0
+PRIME_LOWER_BOUND = 1
 PRIME_UPPER_BOUND = 99
 
 
 def is_number_prime(number):
-    if number < 4:
-        return True
+    if number < 2:
+        return False
     divisor = 2
     while divisor <= number / 2:
         if not number % divisor:
