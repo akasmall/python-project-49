@@ -16,7 +16,7 @@ def is_number_prime(number):
     return True
 
 
-def gets_question_solution(
+def get_question_solution(
         lower_bound=PRIME_LOWER_BOUND, upper_bound=PRIME_UPPER_BOUND):
     number = random.randint(lower_bound, upper_bound)
     if is_number_prime(number):

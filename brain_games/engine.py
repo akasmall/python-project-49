@@ -9,7 +9,7 @@ def launch_game(game):
     print(f'Hello, {name_user}!')
     print(game.RULES)
     for _ in range(NUMBER_ROUNDS):
-        question, correct_answer = game.gets_question_solution()
+        question, correct_answer = game.get_question_solution()
         print(f'Question: {question}')
         answer_user = prompt.string('Your answer: ')
         if str(correct_answer) != str(answer_user):

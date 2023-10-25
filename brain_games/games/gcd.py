@@ -6,7 +6,7 @@ GCD_LOWER_BOUND = 2
 GCD_UPPER_BOUND = 99
 
 
-def gets_question_solution(
+def get_question_solution(
         lower_bound=GCD_LOWER_BOUND, upper_bound=GCD_UPPER_BOUND):
     number_1 = random.randint(lower_bound, upper_bound)
     number_2 = random.randint(lower_bound, upper_bound)

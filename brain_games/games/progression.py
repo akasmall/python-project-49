@@ -8,18 +8,18 @@ PROGRESSION_UPPER_BOUND_D = 9
 PROGRESSION_LEN = 10
 
 
-def gets_progression(a1_progression, an_progression, d_progression):
+def get_progression(a1_progression, an_progression, d_progression):
     progression = range(a1_progression, an_progression, d_progression)
     str_progression = list(map(str, progression))
     return str_progression
 
 
-def gets_quastion(str_progression, index_hide):
+def get_quastion(str_progression, index_hide):
     str_progression[index_hide] = '..'
     return " ".join(str_progression)
 
 
-def gets_question_solution(
+def get_question_solution(
         lower_bound_a1=PROGRESSION_LOWER_BOUND_A1,
         upper_bound_a1=PROGRESSION_UPPER_BOUND_A1,
         lower_bound_d=PROGRESSION_LOWER_BOUND_D,
@@ -28,10 +28,10 @@ def gets_question_solution(
     a1_progression = random.randint(lower_bound_a1, upper_bound_a1)
     d_progression = random.randint(lower_bound_d, upper_bound_d)
     an_progression = a1_progression + len_progression * d_progression
-    str_progression = gets_progression(
+    str_progression = get_progression(
         a1_progression, an_progression, d_progression)
 
     index_hide = random.randint(lower_bound_d, upper_bound_d)
     correct_answer = str_progression[index_hide]
-    question = gets_quastion(str_progression, index_hide)
+    question = get_quastion(str_progression, index_hide)
     return question, correct_answer
