@@ -9,7 +9,8 @@ def is_number_prime(number):
     if number < 2:
         return False
     divisor = 2
-    while divisor <= number / 2:
+    # while divisor <= number / 2:
+    while divisor <= number ** 0.5:
         if not number % divisor:
             return False
         divisor += 1
